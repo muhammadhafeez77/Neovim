@@ -1,20 +1,36 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        -- Force Lazy to pull the old branch before the breaking change
-        branch = "master", 
+        branch = "master", -- Tells Lazy to fetch the legacy configuration branch
         build = ":TSUpdate",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
         config = function()
-            -- Your original code with your fixed typo will work here:
+            -- This module exists on the master branch, so it will load safely
             local configs = require("nvim-treesitter.configs")
+            ---@diagnostic disable-next-line: missing-fields
             configs.setup({
-                -- Your existing highlight, ensure_installed, and textobjects setup blocks
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                        },
+                    },
+                },
                 highlight = { enable = true },
                 indent = { enable = true },
-                ensure_installed = { "lua", "vim", "vimdoc", "markdown" --[[ add your others ]] },
+                autotag = { enable = true },
+                ensure_installed = {
+                    "json", "python", "javascript", "query", "typescript",
+                    "tsx", "php", "yaml", "html", "css", "markdown",
+                    "markdown_inline", "bash", "lua", "vim", "vimdoc",
+                    "c", "dockerfile", "gitignore", "astro",
+                },
+                auto_install = false,
             })
         end
     }
