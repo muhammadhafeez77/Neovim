@@ -1,13 +1,12 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = "master", -- Tells Lazy to fetch the legacy configuration branch
+        branch = "master", -- Curl from old branch and lock it , no updating
         build = ":TSUpdate",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
         config = function()
-            -- This module exists on the master branch, so it will load safely
             local configs = require("nvim-treesitter.configs")
             ---@diagnostic disable-next-line: missing-fields
             configs.setup({
