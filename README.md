@@ -117,10 +117,13 @@ Below is a running list of what and how to install the lsp's that are going to b
 
 # Basic Error Handling
 
-1. If opening nvim gives you a treesitter error , open ~/.config/nvim/lua/plugins/treesitter.lua and in it change this line 
-  -  local configs = require("nvim-treesitter.configs") to local configs = require("nvim-treesitter") , (omit the .configs).
+1. If opening nvim gives you a treesitter error ,
+- switch to backup-treesitter.lua , make it treesitter.lua and make treesitter.lua to backup.
+- ( Currently this error is only seen in debain based distros . PS : I haven't and dont use windows and macos. So :(  )
 
-2. Also for your use case put the {clang.format} file in {~}, 
+ 
+
+3. Also for your use case put the {clang.format} file in {~}, 
   -  (sudo cp ~/.config/nvim/clang-format ~/.clang-format)
   I use the Altman Style.
 
