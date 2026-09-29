@@ -57,6 +57,15 @@ vim.keymap.set("n", "<leader>cn", ":cnext<CR>zz")
 vim.keymap.set("n", "<leader>cp", ":cprev<CR>zz")
 vim.keymap.set("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "LSP Info" })
 
+-- Open a vertical terminal split with <leader>tv
+vim.keymap.set('n', '<leader>tv', ':vsplit | terminal<CR>', { desc = 'Open terminal in vertical split' })
+
+-- Open a horizontal terminal split with <leader>th
+vim.keymap.set('n', '<leader>th', ':split | terminal<CR>', { desc = 'Open terminal in horizontal split' })
+
+-- Quick exit from terminal mode to normal mode using Escape
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
 -- source file
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
