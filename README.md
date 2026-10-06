@@ -1,6 +1,36 @@
-# Neovim Keybinds Documentation
+# Neovim  Documentation
 
 This document provides a simple and organized overview of all the custom keybinds defined in my Neovim configuration.
+
+
+# LSP servers:
+
+I am migrating my lsp config to /lua/plugins/lsp.lua because nvim v0.11 allows a very minimal debloated way to setup language server protocols. 
+
+Below is a running list of what and how to install the lsp's that are going to be configured in this build. I will avoid mason for now because I think its better to have full control over your system, and not outsource it to mason. Just uncommonet `return {` in /plugins/lsp.lua from the original lspconfig if you want to go that route.
+
+1. { lua-language-server } 
+  - refer to distro ( pacman -Ss lua-language-server )
+2. { css-language-server --studio, html-language-server }
+  - npm install -g vscode-langservers-extracted
+3. { intelephense }
+  - npm install -g intelephense
+4. { typescript-language-server }
+  - npm install -g typescript-language-server typescript
+5. fzf , ripgrep , fd , batcat/bat , gcc , clang  
+
+# Basic Error Handling
+
+1. If opening nvim gives you a treesitter error ,
+- switch to backup-treesitter.lua , make it treesitter.lua and make treesitter.lua to backup.
+- ( Currently this error is only seen in debain based distros . PS : I haven't and dont use windows and macos. So :(  )
+
+ 
+
+3. Also for your use case put the {clang.format} file in {~}, 
+  -  (sudo cp ~/.config/nvim/clang-format ~/.clang-format)
+  I use the Altman Style.
+
 
 ## General Keybinds
 
@@ -99,32 +129,4 @@ This document provides a simple and organized overview of all the custom keybind
 | `n`  | `<leader>s`     | Replace all instances of the word under the cursor on the current line                      |
 
 ---
-
-# LSP servers:
-
-I am migrating my lsp config to /lua/plugins/lsp.lua because nvim v0.11 allows a very minimal debloated way to setup language server protocols. 
-
-Below is a running list of what and how to install the lsp's that are going to be configured in this build. I will avoid mason for now because I think its better to have full control over your system, and not outsource it to mason. Just uncommonet `return {` in /plugins/lsp.lua from the original lspconfig if you want to go that route.
-
-1. { lua-language-server } 
-  - refer to distro ( pacman -Ss lua-language-server )
-2. { css-language-server --studio, html-language-server }
-  - npm install -g vscode-langservers-extracted
-3. { intelephense }
-  - npm install -g intelephense
-4. { typescript-language-server }
-  - npm install -g typescript-language-server typescript
-
-# Basic Error Handling
-
-1. If opening nvim gives you a treesitter error ,
-- switch to backup-treesitter.lua , make it treesitter.lua and make treesitter.lua to backup.
-- ( Currently this error is only seen in debain based distros . PS : I haven't and dont use windows and macos. So :(  )
-
- 
-
-3. Also for your use case put the {clang.format} file in {~}, 
-  -  (sudo cp ~/.config/nvim/clang-format ~/.clang-format)
-  I use the Altman Style.
-
 
