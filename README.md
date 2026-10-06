@@ -3,7 +3,7 @@
 This document provides a simple and organized overview of all the custom keybinds defined in my Neovim configuration.
 
 
-# LSP servers:
+# LSP servers + Tools :
 
 I am migrating my lsp config to /lua/plugins/lsp.lua because nvim v0.11 allows a very minimal debloated way to setup language server protocols. 
 
@@ -17,7 +17,7 @@ Below is a running list of what and how to install the lsp's that are going to b
   - npm install -g intelephense
 4. { typescript-language-server }
   - npm install -g typescript-language-server typescript
-5. fzf , ripgrep , fd , batcat/bat , gcc , clang  
+5.   Tools :  fzf , ripgrep , fd , batcat/bat , gcc , clang  
 
 # Basic Error Handling
 
